@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MindSpace - Emosi Kecewa</title>
+<style>
+body { font-family: Arial,sans-serif; background:#fff4ec; color:#59483d; text-align:center; padding:25px; }
+h1 { color:#c47b50; }
+.card { background:white; border:2px solid #f5d9c8; border-radius:20px; padding:25px; max-width:280px; margin:30px auto; cursor:pointer; box-shadow:0 4px 12px #eadfd8; }
+.emoji { display:block; font-size:55px; margin-bottom:12px; }
+.overlay { display:none; position:fixed; inset:0; background:rgba(50,40,35,.6); justify-content:center; align-items:center; padding:20px; }
+.overlay.show { display:flex; }
+.popup { background:white; max-width:400px; padding:25px; border-radius:20px; position:relative; text-align:left; animation:popUp .3s; }
+.popup h2 { color:#c47b50; }
+.popup p,.popup li { line-height:1.7; }
+.tip { background:#fff0e5; padding:12px; border-radius:12px; }
+.close { position:absolute; top:8px; right:10px; border:none; border-radius:50%; background:#ffe5d6; font-size:22px; cursor:pointer; width:32px; height:32px; }
+@keyframes popUp { from {transform:scale(.8);opacity:0} to {transform:scale(1);opacity:1} }
+</style>
+</head>
+<body>
+<h1>🌈 MindSpace</h1>
+<p>Kenali emosi anda dan pelajari cara menguruskannya.</p>
+
+<div class="card" onclick="openPopup()">
+  <span class="emoji">😞</span>
+  <strong>Emosi Kecewa</strong>
+  <p>Klik untuk mengetahui lebih lanjut!</p>
+</div>
+
+<div class="overlay" id="overlay" onclick="closeOutside(event)">
+  <div class="popup">
+    <button class="close" onclick="closePopup()">×</button>
+    <h2>😞 Emosi Kecewa</h2>
+    <p>Kecewa ialah perasaan yang timbul apabila sesuatu yang diharapkan tidak berlaku seperti yang diinginkan.</p>
+    <p><strong>Contoh situasi:</strong><br>Berasa kecewa apabila telah berusaha bersungguh-sungguh tetapi keputusan peperiksaan tidak seperti yang diharapkan.</p>
+    <div class="tip">
+      💡 <strong>Cara mengurus emosi kecewa:</strong>
+      <ul>
+        <li>Akui perasaan kecewa tanpa menyalahkan diri secara berlebihan.</li>
+        <li>Kenal pasti perkara yang boleh diperbaiki.</li>
+        <li>Jadikan pengalaman sebagai pengajaran.</li>
+        <li>Berikan diri peluang untuk mencuba lagi.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+function openPopup() { document.getElementById("overlay").classList.add("show"); }
+function closePopup() { document.getElementById("overlay").classList.remove("show"); }
+function closeOutside(event) { if(event.target.id==="overlay") closePopup(); }
+document.addEventListener("keydown",function(event){if(event.key==="Escape")closePopup();});
+</script>
+</body>
+</html>
